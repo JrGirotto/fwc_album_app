@@ -1,6 +1,6 @@
-# fwc_album_app
+# Álbum FIFA 2022
 
-A new Flutter project.
+Controle do Álbum de figurinhas da Copa do Mundo de 2022
 
 ## Getting Started
 

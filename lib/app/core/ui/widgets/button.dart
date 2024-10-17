@@ -28,8 +28,9 @@ class Button extends StatelessWidget {
     this.width,
     this.height,
     this.onPressed,
-  })  : style = ButtonStyles.i.primaryButton,
-        labelStyle = TextStyles.i.textSecondaryFontExtraBold,
+  })  : style = ButtonStyles.i.primaryButton, 
+        labelStyle = TextStyles.i.textSecondaryFontBold,
+        
         outline = false;
 
   @override
@@ -42,12 +43,13 @@ class Button extends StatelessWidget {
 
     return SizedBox(
       width: width,
-      height: height,
+      height: 56,
       child: outline
           ? OutlinedButton(
               style: style,
               onPressed: onPressed,
               child: labelText,
+              
             )
           : ElevatedButton(
               style: style,

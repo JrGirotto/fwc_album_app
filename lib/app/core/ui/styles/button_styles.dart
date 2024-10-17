@@ -32,7 +32,7 @@ class ButtonStyles {
           borderRadius: BorderRadius.circular(16),
         ),
         textStyle:
-            TextStyles.i.textSecondaryFontExtraBold.copyWith(fontSize: 14),
+            TextStyles.i.textSecondaryFontBold.copyWith(fontSize: 14),
       );
 
   ButtonStyle get primaryOutlineButton => ElevatedButton.styleFrom(

@@ -9,6 +9,7 @@ class FwcAlbumApp extends StatelessWidget {
     return MaterialApp(
       title: 'Fifa World Cup Album',
       debugShowCheckedModeBanner: false,
+      //theme: ThemeConfig.theme,
       routes: {
         '/': (context) => const SplashPage(),
       },

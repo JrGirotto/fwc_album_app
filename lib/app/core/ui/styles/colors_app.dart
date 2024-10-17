@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 
 class ColorsApp {
   static ColorsApp? _instance;
-  // Avoid self instance
   ColorsApp._();
   static ColorsApp get i =>
     _instance ??= ColorsApp._();

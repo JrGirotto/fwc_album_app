@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 
-class ThemeConfig {
+final class ThemeConfig {
   ThemeConfig._();
+  
 
   static final _defaultInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(18),
@@ -11,6 +12,7 @@ class ThemeConfig {
   );
 
   static final theme = ThemeData(
+    useMaterial3: true,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       elevation: 0,

@@ -55,6 +55,9 @@ class TextStyles {
 
   TextStyle get titleButtonPrimary =>
       textSecondaryFontBold.copyWith(fontSize: 14, color: Colors.white);
+
+  TextStyle get titlePrimaryColor =>
+      textPrimaryFontBold.copyWith(color: ColorsApp.i.primary, fontSize: 22);
 }
 
 extension TextStylesExtensions on BuildContext {

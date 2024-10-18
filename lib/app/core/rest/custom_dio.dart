@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:dio/native_imp.dart';
+import 'package:flutter_getit/flutter_getit.dart';
 import 'package:fwc_album_app/app/core/config/env/env.dart';
 import 'package:fwc_album_app/app/core/rest/interceptors/auth_interceptor.dart';
+import 'package:fwc_album_app/app/core/ui/global/global_context.dart';
 
 class CustomDio extends DioForNative {
   final _authInterceptor = AuthInterceptor();
@@ -25,4 +27,13 @@ class CustomDio extends DioForNative {
     interceptors.remove(_authInterceptor);
     return this;
   }
+
+  void onError(DioError err, ErrorInterceptorHandler handler) {
+    if (err.response?.statusCode == 401) {
+      Injector.get<GlobalContext>().loginExpire();
+    } else {
+      handler.next(err);
+    }
+  }
 }
+

@@ -29,8 +29,7 @@ class Button extends StatelessWidget {
     this.height,
     this.onPressed,
   })  : style = ButtonStyles.i.primaryButton, 
-        labelStyle = TextStyles.i.textSecondaryFontBold,
-        
+        labelStyle = TextStyles.i.titleButtonPrimary,
         outline = false;
 
   @override

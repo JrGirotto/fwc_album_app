@@ -4,20 +4,36 @@ import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 import 'package:fwc_album_app/app/core/ui/widgets/button.dart';
+import 'package:fwc_album_app/app/pages/auth/login/presenter/login_presenter.dart';
+import 'package:fwc_album_app/app/pages/auth/login/view/login_view_impl.dart';
+import 'package:validatorless/validatorless.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final LoginPresenter presenter;
+  const LoginPage({super.key, required this.presenter});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends LoginViewImpl {
+  final formKey = GlobalKey<FormState>();
+  final emailEC = TextEditingController();
+  final passwordEC = TextEditingController();
+
+  @override
+  void dispose() {
+    emailEC.dispose();
+    passwordEC.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colorsApp.primary,
       body: Form(
+        key: formKey,
         child: Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -40,6 +56,12 @@ class _LoginPageState extends State<LoginPage> {
                           Text('Login', style: context.textStyles.titleWhite)),
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  controller: emailEC,
+                  validator: Validatorless.multiple([
+                    Validatorless.required('E-mail obrigatório'),
+                    Validatorless.email('E-mail inválido'),
+                  ]),
                   decoration: const InputDecoration(
                     floatingLabelBehavior: FloatingLabelBehavior.never,
                     labelText: 'E-mail',
@@ -47,6 +69,13 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
+                  keyboardType: TextInputType.visiblePassword,
+                  obscureText: true,
+                  controller: passwordEC,
+                  validator: Validatorless.multiple([
+                    Validatorless.required('Senha obrigatória'),
+                    Validatorless.min(6, 'Mínimo de 6 caracteres'),
+                  ]),
                   decoration: const InputDecoration(
                     floatingLabelBehavior: FloatingLabelBehavior.never,
                     labelText: 'Senha',
@@ -68,7 +97,14 @@ class _LoginPageState extends State<LoginPage> {
                     labelStyle: context
                         .textStyles.textSecondaryFontExtraBoldPrimaryColor,
                     label: 'Entrar',
-                    onPressed: () {}),
+                    onPressed: () {
+                      showLoader();
+                      final formValid =
+                          formKey.currentState?.validate() ?? false;
+                      if (formValid) {
+                        widget.presenter.login(emailEC.text, passwordEC.text);
+                      }
+                    }),
               ]),
             ),
             SliverFillRemaining(

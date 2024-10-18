@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fwc_album_app/app/core/ui/helpers/loader.dart';
 import 'package:fwc_album_app/app/core/ui/helpers/messages.dart';
-import 'package:fwc_album_app/app/pages/auth/login/register/register_page.dart';
-import 'package:fwc_album_app/app/pages/auth/login/register/view/register_view.dart';
+import 'package:fwc_album_app/app/pages/auth/register/register_page.dart';
+import 'package:fwc_album_app/app/pages/auth/register/view/register_view.dart';
 
 abstract class RegisterViewImpl extends State<RegisterPage>
     with Loader<RegisterPage>, Messages<RegisterPage>

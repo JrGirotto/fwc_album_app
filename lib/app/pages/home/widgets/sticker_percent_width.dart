@@ -15,7 +15,7 @@ class StickerPercentWidth extends StatelessWidget {
           width: 70,
           height: 70,
           decoration: BoxDecoration(
-            color: context.colorsApp.grey,
+            color: context.colors.grey,
             shape: BoxShape.circle,
             border: Border.all(
               color: Colors.white,

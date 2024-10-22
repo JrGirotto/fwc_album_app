@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getit/flutter_getit.dart';
-import 'package:fwc_album_app/app/core/ui/global/global_context.dart';
 import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
@@ -87,13 +85,15 @@ class _HomePageState extends HomeViewImpl {
                   ),
                   const SizedBox(height: 20),
                   Button(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/my-stickers');
+                    },
                     width: MediaQuery.of(context).size.width * .90,
                     outline: true,
                     style: context.buttonStyles.yellowOutlineButton,
                     labelStyle:
                         context.textStyles.textSecondaryFontExtraBold.copyWith(
-                      color: context.colorsApp.yellow,
+                      color: context.colors.yellow,
                     ),
                     label: 'Minhas Figurinhas',
                   ),

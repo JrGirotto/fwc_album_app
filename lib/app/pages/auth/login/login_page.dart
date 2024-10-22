@@ -31,7 +31,7 @@ class _LoginPageState extends LoginViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.colorsApp.primary,
+      backgroundColor: context.colors.primary,
       body: Form(
         key: formKey,
         child: Container(

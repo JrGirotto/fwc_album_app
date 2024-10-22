@@ -20,7 +20,10 @@ class RoundedButton extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: onPressed,
-            icon: Icon(icon, color: context.colorsApp.greyDark,),
+            icon: Icon(
+              icon,
+              color: context.colors.greyDark,
+            ),
           ),
         ));
   }

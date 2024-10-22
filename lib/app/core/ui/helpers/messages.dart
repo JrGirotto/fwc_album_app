@@ -10,7 +10,7 @@ mixin Messages<T extends StatefulWidget> on State<T> {
       overlay,
       CustomSnackBar.error(
         message: message,
-        backgroundColor: context.colorsApp.primary,
+        backgroundColor: context.colors.primary,
       ),
     );
   }

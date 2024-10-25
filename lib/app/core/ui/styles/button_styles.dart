@@ -4,9 +4,13 @@ import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 
 class ButtonStyles {
   static ButtonStyles? _instance;
-  // Avoid self instance
+  
   ButtonStyles._();
-  static ButtonStyles get i => _instance ??= ButtonStyles._();
+  
+  static ButtonStyles get i {
+    _instance ??= ButtonStyles._();
+    return _instance!;
+  } 
 
   ButtonStyle get yellowButton => ElevatedButton.styleFrom(
         backgroundColor: ColorsApp.i.yellow,
@@ -32,7 +36,7 @@ class ButtonStyles {
           borderRadius: BorderRadius.circular(16),
         ),
         textStyle:
-            TextStyles.i.textSecondaryFontBold.copyWith(fontSize: 14),
+            TextStyles.i.textSecondaryFontExtraBold.copyWith(fontSize: 14),
       );
 
   ButtonStyle get primaryOutlineButton => ElevatedButton.styleFrom(
@@ -40,8 +44,6 @@ class ButtonStyles {
           borderRadius: BorderRadius.circular(16),
         ),
         side: BorderSide(color: ColorsApp.i.primary),
-        textStyle:
-            TextStyles.i.textSecondaryFontExtraBold.copyWith(fontSize: 14),
       );
 
         

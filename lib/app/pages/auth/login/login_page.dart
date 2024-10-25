@@ -112,13 +112,11 @@ class _LoginPageState extends LoginViewImpl {
                 children: [
                   Spacer(),
                   Text.rich(
-                    style: context.textStyles.textSecondaryFontMedium
-                        .copyWith(color: Colors.white),
+                    style: context.textStyles.textSecondaryFontMedium,
                     TextSpan(text: 'Não tem uma conta?', children: [
                       TextSpan(
                         text: ' Cadastre-se',
-                        style: context.textStyles.textSecondaryFontMedium
-                            .copyWith(color: Colors.yellow),
+                          style: context.textStyles.textSecondaryFontMedium,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               Navigator.of(context).pushNamed('/auth/register');

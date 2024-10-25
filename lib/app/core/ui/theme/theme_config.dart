@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 
-final class ThemeConfig {
+class ThemeConfig {
   ThemeConfig._();
   
 
@@ -31,9 +31,10 @@ final class ThemeConfig {
         filled: true,
         isDense: true,
         contentPadding: const EdgeInsets.all(13),
+      labelStyle: TextStyles.i.labelTextField,
         border: _defaultInputBorder,
         enabledBorder: _defaultInputBorder,
         focusedBorder: _defaultInputBorder,
-        labelStyle: TextStyles.i.labelTextField),
+    ),
   );
 }

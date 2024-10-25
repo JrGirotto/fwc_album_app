@@ -30,13 +30,13 @@ class TextStyles {
 
 //secondary font
   TextStyle get textSecondaryFontRegular =>
-      TextStyle(fontWeight: FontWeight.normal, fontFamily: secondaryFont);
+      TextStyle(fontWeight: FontWeight.w400, fontFamily: secondaryFont);
 
   TextStyle get textSecondaryFontMedium =>
       TextStyle(fontWeight: FontWeight.w600, fontFamily: secondaryFont);
 
   TextStyle get textSecondaryFontBold =>
-      TextStyle(fontWeight: FontWeight.bold, fontFamily: secondaryFont);
+      TextStyle(fontWeight: FontWeight.w700, fontFamily: secondaryFont);
 
   TextStyle get textSecondaryFontExtraBold =>
       TextStyle(fontWeight: FontWeight.w800, fontFamily: secondaryFont);
@@ -52,9 +52,6 @@ class TextStyles {
 
   TextStyle get titleBlack =>
       textPrimaryFontBold.copyWith(fontSize: 22, color: Colors.black);
-
-  TextStyle get titleButtonPrimary =>
-      textSecondaryFontBold.copyWith(fontSize: 14, color: Colors.white);
 
   TextStyle get titlePrimaryColor =>
       textPrimaryFontBold.copyWith(color: ColorsApp.i.primary, fontSize: 22);

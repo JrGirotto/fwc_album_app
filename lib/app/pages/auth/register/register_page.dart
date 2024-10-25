@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 import 'package:fwc_album_app/app/core/ui/widgets/button.dart';
 import 'package:fwc_album_app/app/pages/auth/register/presenter/register_presenter.dart';
@@ -107,7 +108,10 @@ class _RegisterPageState extends RegisterViewImpl {
                                 passwordEC, 'Senhas diferentes'),
                           ])),
                       const SizedBox(height: 30),
-                      Button.primary(
+                      Button(
+                        style: context.buttonStyles.yellowButton,
+                        labelStyle: context
+                            .textStyles.textSecondaryFontExtraBoldPrimaryColor,
                         onPressed: () {
                           final formValid =
                               formKey.currentState?.validate() ?? false;

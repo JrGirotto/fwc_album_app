@@ -5,7 +5,10 @@ class TextStyles {
   static TextStyles? _instance;
   // Avoid self instance
   TextStyles._();
-  static TextStyles get i => _instance ??= TextStyles._();
+  static TextStyles get i {
+    _instance ??= TextStyles._();
+    return _instance!;
+  }
 
   String get primaryFont => 'Poppins';
   String get secondaryFont => 'MPlus1P';

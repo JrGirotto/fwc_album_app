@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:fwc_album_app/app/core/exceptions/repository_exception.dart';
 import 'package:fwc_album_app/app/core/rest/custom_dio.dart';
 import 'package:fwc_album_app/app/models/groups_stickers.dart';
+import 'package:fwc_album_app/app/models/register_stickers_model.dart';
 import 'package:fwc_album_app/app/models/sticker_model.dart';
 import 'package:fwc_album_app/app/repository/stickers/stickers_repository.dart';
 
@@ -47,7 +47,21 @@ class StickersRepositoryImpl implements StickersRepository {
       log('Erro ao buscar figurinha', error: e, stackTrace: s);
       throw RepositoryException(message: 'Erro ao buscar figurinha');
     }
-    return null;
+  }
+
+  @override
+  Future<StickerModel> create(
+      RegisterStickersModel registerStickersModel) async {
+    try {
+      final body = FormData.fromMap({
+        ...registerStickersModel.toMap(),
+      });
+      final result = await dio.auth().post('/api/stickers', data: body);
+      return StickerModel.fromMap(result.data);
+    } on DioError catch (e, s) {
+      log('Erro ao registrar figurinha', error: e, stackTrace: s);
+      throw RepositoryException(message: 'Erro ao registrar figurinha');
+    }
   }
 
   
